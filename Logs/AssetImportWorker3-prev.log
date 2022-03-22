@@ -1,0 +1,309 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.28f1 (f5400f52e03f) revision 16072719'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19043) 64bit CoreSingleLanguage' Language: 'pt' Physical Memory: 8105 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+C:\2020.3.28f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker3
+-projectPath
+C:/Users/Gustavo Moura/EnziGame
+-logFile
+Logs/AssetImportWorker3.log
+-srvPort
+51892
+Successfully changed project path to: C:/Users/Gustavo Moura/EnziGame
+C:/Users/Gustavo Moura/EnziGame
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 78.26 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.28f1 (f5400f52e03f)
+[Subsystems] Discovering subsystems at path C:/2020.3.28f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Gustavo Moura/EnziGame/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce 920MX (ID=0x134f)
+    Vendor:   
+    VRAM:     2010 MB
+    Driver:   26.21.14.3063
+Initialize mono
+Mono path[0] = 'C:/2020.3.28f1/Editor/Data/Managed'
+Mono path[1] = 'C:/2020.3.28f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/2020.3.28f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56844
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/2020.3.28f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/2020.3.28f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.004402 seconds.
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 61.77 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.916 seconds
+Domain Reload Profiling:
+	ReloadAssembly (916ms)
+		BeginReloadAssembly (135ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (2ms)
+		EndReloadAssembly (681ms)
+			LoadAssemblies (129ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (223ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (268ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (62ms)
+				BeforeProcessingInitializeOnLoad (16ms)
+				ProcessInitializeOnLoadAttributes (130ms)
+				ProcessInitializeOnLoadMethodAttributes (51ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.014238 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 60.16 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.223 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3226ms)
+		BeginReloadAssembly (361ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (43ms)
+		EndReloadAssembly (2729ms)
+			LoadAssemblies (1379ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (629ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (61ms)
+			SetupLoadedEditorAssemblies (594ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (60ms)
+				BeforeProcessingInitializeOnLoad (102ms)
+				ProcessInitializeOnLoadAttributes (308ms)
+				ProcessInitializeOnLoadMethodAttributes (107ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.52 seconds
+Refreshing native plugins compatible for Editor in 0.66 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2219 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.5 MB.
+System memory in use after: 98.5 MB.
+
+Unloading 34 unused Assets to reduce memory usage. Loaded Objects now: 2648.
+Total: 3.963000 ms (FindLiveObjects: 0.218200 ms CreateObjectMapping: 0.146100 ms MarkObjects: 3.441300 ms  DeleteObjects: 0.156000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Sprites/PSD/PlayerModel3.psd
+  artifactKey: Guid(303aceb13bd25384c8685230c9b1b52a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/PlayerModel3.psd using Guid(303aceb13bd25384c8685230c9b1b52a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c33d05fef853c0792bb09d1697ac09b') in 0.259587 seconds 
+  Import took 0.288573 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000359 seconds.
+  path: Assets/Sprites/PSD/Enzyme1Triangle.psd
+  artifactKey: Guid(a65c3b437ca9cfc4fb40498e55bf46ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/Enzyme1Triangle.psd using Guid(a65c3b437ca9cfc4fb40498e55bf46ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '388009a50c8e460af250e99efdcbb75d') in 0.052688 seconds 
+  Import took 0.074227 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000349 seconds.
+  path: Assets/Sprites/PSD/EnzymeModel2.psd
+  artifactKey: Guid(23bab6add002bff4580bb3a9274726e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/EnzymeModel2.psd using Guid(23bab6add002bff4580bb3a9274726e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fc13629cd9a5cd3f5cebf095d5e2cb8') in 0.049455 seconds 
+  Import took 0.078540 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000345 seconds.
+  path: Assets/Sprites/PSD/PlayerModel2.psd
+  artifactKey: Guid(a533e04933e4b164c9241aab4cc49f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/PlayerModel2.psd using Guid(a533e04933e4b164c9241aab4cc49f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed5ccf6fc112756d279f7b837bebe70a') in 0.039868 seconds 
+  Import took 0.066874 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000371 seconds.
+  path: Assets/Sprites/PSD/Menu/LetreiroEnzigame.psd
+  artifactKey: Guid(654345b6d44572a4395534e3ea83cb84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/Menu/LetreiroEnzigame.psd using Guid(654345b6d44572a4395534e3ea83cb84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc7fa36d6eb27f3273f2f508b8112b68') in 0.053352 seconds 
+  Import took 0.098986 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/Sprites/PSD/Enzyme1Circle.psd
+  artifactKey: Guid(ee39f3e73d7525d4a9963221bd719173) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/Enzyme1Circle.psd using Guid(ee39f3e73d7525d4a9963221bd719173) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fac72d628a44fe60f9a4d74963f52e5') in 0.071679 seconds 
+  Import took 0.091924 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/Sprites/PSD/PlayerModel1.psd
+  artifactKey: Guid(957b5b1429ba6ca42b2acc7bef229ae7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/PlayerModel1.psd using Guid(957b5b1429ba6ca42b2acc7bef229ae7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbbc994760436ccabc2ac7c4a8323e6b') in 0.066245 seconds 
+  Import took 0.081235 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000352 seconds.
+  path: Assets/Sprites/PSD/PM3Destroying.psd
+  artifactKey: Guid(451c10541e0739f4dbbe8a4a5172e2eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/PM3Destroying.psd using Guid(451c10541e0739f4dbbe8a4a5172e2eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d9155cbffbd1fdeb1a1db71ce0ac9b7') in 0.074762 seconds 
+  Import took 0.083394 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000527 seconds.
+  path: Assets/Sprites/PSD/PM2Destroying.psd
+  artifactKey: Guid(8b85206f3ac334f479b8f2b61631ec0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/PM2Destroying.psd using Guid(8b85206f3ac334f479b8f2b61631ec0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1110b8cd34b684a9c7ebe6fedcc5054d') in 0.072644 seconds 
+  Import took 0.104481 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001574 seconds.
+  path: Assets/Sprites/PSD/EnzymeModel3.psd
+  artifactKey: Guid(6ff22e031712dc64180548c8fad0f6ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/EnzymeModel3.psd using Guid(6ff22e031712dc64180548c8fad0f6ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25eb839a69eb4625e78d0fcf0d01a54d') in 0.054553 seconds 
+  Import took 0.094816 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/Sprites/PSD/Enzyme2Rectangle.psd
+  artifactKey: Guid(b871efc4ded05144fb7e9a83310a96ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/Enzyme2Rectangle.psd using Guid(b871efc4ded05144fb7e9a83310a96ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '444c54fb9c2949f636c6d018db0e533e') in 0.125144 seconds 
+  Import took 0.144960 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000317 seconds.
+  path: Assets/Sprites/PSD/PM1Destroying.psd
+  artifactKey: Guid(a82b35da5aa0a1547bfe08f76459d4b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/PM1Destroying.psd using Guid(a82b35da5aa0a1547bfe08f76459d4b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62ae5ae8959df0b026591a95bf652219') in 0.054992 seconds 
+  Import took 0.089830 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000405 seconds.
+  path: Assets/Sprites/PSD/Enzyme2Circle.psd
+  artifactKey: Guid(f50049bbceeb7ca499afe09e956d3d1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/Enzyme2Circle.psd using Guid(f50049bbceeb7ca499afe09e956d3d1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2906c45e0e5a05e39c2633b10b1902e') in 0.060434 seconds 
+  Import took 0.101993 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000724 seconds.
+  path: Assets/Sprites/PSD/Professora.psd
+  artifactKey: Guid(3564cb5c5cefccf4d8cbc66e06929fcb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/Professora.psd using Guid(3564cb5c5cefccf4d8cbc66e06929fcb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8895ff21570c42e78af3bd9e7eb1ed3') in 0.056402 seconds 
+  Import took 0.082335 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Assets/Sprites/PSD/EnzymeModel1.psd
+  artifactKey: Guid(d4b0d43677a7faa48abd1edf6a0db20a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/EnzymeModel1.psd using Guid(d4b0d43677a7faa48abd1edf6a0db20a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd595cb007c1c550baf2a8fb0c1861ce0') in 0.057636 seconds 
+  Import took 0.084302 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000296 seconds.
+  path: Assets/Sprites/PSD/Enzyme3Rectangle.psd
+  artifactKey: Guid(f6876f762f6e2774991637ff0dc1a245) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/Enzyme3Rectangle.psd using Guid(f6876f762f6e2774991637ff0dc1a245) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6e495937721cfc274a35bb89aaf879d') in 0.083458 seconds 
+  Import took 0.109130 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000403 seconds.
+  path: Assets/Sprites/PSD/RedNoisyBackground.psd
+  artifactKey: Guid(90c18387361b6c34cb823a2ee404d763) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/RedNoisyBackground.psd using Guid(90c18387361b6c34cb823a2ee404d763) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '773118ed4656af44a8ccbeef42e7d084') in 0.055596 seconds 
+  Import took 0.089806 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/Sprites/PSD/Enzyme3Triangle.psd
+  artifactKey: Guid(cc1235e65adb1f34a8f0693328b2cd62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/PSD/Enzyme3Triangle.psd using Guid(cc1235e65adb1f34a8f0693328b2cd62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9dc8f9d95434ffc97d434e14a7b604c') in 0.056563 seconds 
+  Import took 0.086981 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 187.182456 seconds.
+  path: Assets/Sprites
+  artifactKey: Guid(bc3ea64a257e360408acdcdf46843d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites using Guid(bc3ea64a257e360408acdcdf46843d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1adee053e4ea5bb5255d5030492b5cd3') in 0.013595 seconds 
+  Import took 0.037532 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.654167 seconds.
+  path: Assets/Sprites/IsometricDiamond.png
+  artifactKey: Guid(1587831531fa7884199f51f33b607dc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/IsometricDiamond.png using Guid(1587831531fa7884199f51f33b607dc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3a7f9832b5e121374304af3fd59dca5') in 0.212997 seconds 
+  Import took 0.239002 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 32.647210 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(5de6285d912432f438662f18721c7f36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(5de6285d912432f438662f18721c7f36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7efd5b6cef023ee8aa6971638536c524') in 0.036881 seconds 
+  Import took 0.066897 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.359045 seconds.
+  path: Assets/Scripts/TeacherSp.cs
+  artifactKey: Guid(2c1dcba0e1f73304c9b8bb8dcd34a763) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/TeacherSp.cs using Guid(2c1dcba0e1f73304c9b8bb8dcd34a763) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eac1b2af3fbba4797d7657d5c47af998') in 0.059287 seconds 
+  Import took 0.075695 seconds .
+
