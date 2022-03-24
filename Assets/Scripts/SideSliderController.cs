@@ -12,18 +12,14 @@ public class SideSliderController : MonoBehaviour
     public GameObject[] player;
     public GameObject[] itens;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectsWithTag("Player");
 
-        for(int i = 0;i<=2;i++){
-            StartCoroutine(SliderController(sliders[i]));
-        }
+        ShowSlider(0);
+        CallSliderCoroutine(0);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -39,6 +35,10 @@ public class SideSliderController : MonoBehaviour
         }
     }
 
+    public void CallSliderCoroutine(int sliderIndex){
+        StartCoroutine(SliderController(sliders[sliderIndex]));
+    }
+
     IEnumerator SliderController(Slider slider){
         while(slider.value > 0){
             yield return new WaitForSeconds (0.2f);
@@ -49,6 +49,13 @@ public class SideSliderController : MonoBehaviour
             Destroy(itens[i]);
         }
         Destroy(player[0].GetComponent<SpriteRenderer>());
+    }
+
+    public void HideSlider(int sliderIndex){
+        sliders[sliderIndex].gameObject.SetActive(false);
+    }
+    public void ShowSlider(int sliderIndex){
+        sliders[sliderIndex].gameObject.SetActive(true);
     }
 }
 

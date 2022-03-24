@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class DestroyerScript : MonoBehaviour
 {
-    public Text scoreText;
-    int score;
     public Slider enzymeTimer;
     public GameObject slidersController;
     public float destroyingDelay = 0.00001f; 
+
+    public ScoreManager scoreManagerScript;
+
     void Start()
     {
     }
     void Update()
-    {
-        
+    { 
     }
 
     void OnCollisionEnter2D(Collision2D other){
@@ -53,9 +53,10 @@ public class DestroyerScript : MonoBehaviour
         other.gameObject.GetComponent<SubstrateController>().DestructionEffect();
         other.gameObject.GetComponent<SubstrateController>().RemoveShip(); // <------ GAMBIARRA
 
+        scoreManagerScript.AddScore();
+        
         enzymeTimer.value = 1;
-        score++;
-        scoreText.text = "Pontos:" + score;
+        
 
         this.gameObject.transform.parent.GetComponent<PlayerController>().ChangePlayer(-2);
 

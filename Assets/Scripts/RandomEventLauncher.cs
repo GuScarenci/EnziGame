@@ -7,6 +7,7 @@ public class RandomEventLauncher : MonoBehaviour
 {
     public GameObject destroyer;
     public GameObject textPH;
+    public GameObject teacher;
     public GameObject textTemperature;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,9 @@ public class RandomEventLauncher : MonoBehaviour
 
     IEnumerator PHEvent(){
         while(true){
+
+            yield return new WaitForSeconds(10);
+            
             int temp = Random.Range(0,10);
             if (temp == 1){
                 destroyer.GetComponent<DestroyerScript>().increaseDestroyDelay();
@@ -33,6 +37,9 @@ public class RandomEventLauncher : MonoBehaviour
 
     IEnumerator TemperatureEvent(){
         while(true){
+
+            yield return new WaitForSeconds(10);
+
             int temp = Random.Range(0,10);
             if (temp == 1){
                 destroyer.GetComponent<DestroyerScript>().increaseDestroyDelay();
