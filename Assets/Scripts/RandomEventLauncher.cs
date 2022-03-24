@@ -7,8 +7,12 @@ public class RandomEventLauncher : MonoBehaviour
 {
     public GameObject destroyer;
     public GameObject textPH;
-    public GameObject teacher;
+    public TeacherSpeakManager teacherScript;
     public GameObject textTemperature;
+
+    bool hasCalledTeacher = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +23,15 @@ public class RandomEventLauncher : MonoBehaviour
 
     IEnumerator PHEvent(){
         while(true){
-
-            yield return new WaitForSeconds(10);
-            
+            bool started = false;
+            if(!started){
+                yield return new WaitForSeconds(5);
+            }
             int temp = Random.Range(0,10);
             if (temp == 1){
+                if(hasCalledTeacher){
+                    teacherScript.ChangeLine();
+                }
                 destroyer.GetComponent<DestroyerScript>().increaseDestroyDelay();
                 textPH.SetActive(true);
             }

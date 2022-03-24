@@ -9,7 +9,7 @@ public class SideSliderController : MonoBehaviour
     public Slider[] sliders;
     public GameObject losePanel;
 
-    public GameObject[] player;
+    GameObject[] player;
     public GameObject[] itens;
 
     void Start()

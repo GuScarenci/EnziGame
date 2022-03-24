@@ -5,20 +5,28 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     int level;
-    
-    // Start is called before the first frame update
+    TeacherSpeakManager teacherScript;
+    public SideSliderController sliderScript; 
+
     void Start()
     {
-        
+        teacherScript = this.gameObject.GetComponent<TeacherSpeakManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
 
     public void PassLevel(){
-
+        if(level == 0){
+            sliderScript.ShowSlider(1);
+            sliderScript.CallSliderCoroutine(1);
+            
+        }else if(level == 1){
+            sliderScript.ShowSlider(2);
+            sliderScript.CallSliderCoroutine(2);
+        }
+        level++;
     }
 }

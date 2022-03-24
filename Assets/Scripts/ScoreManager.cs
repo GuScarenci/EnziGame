@@ -8,6 +8,8 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text scoreText;
     int score;
 
+    public LevelManager levelManagerScript;
+
     void Start()
     {
     }
@@ -18,5 +20,8 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(){
         score++;
         scoreText.text = "Pontos:" + score;
+        if(score >= 5){
+            levelManagerScript.PassLevel();
+        }
     }
 }
