@@ -7,6 +7,8 @@ public class SideSliderController : MonoBehaviour
 {
 
     public Slider[] sliders;
+
+    Coroutine[] sliderCoroutine = new Coroutine[3];
     public GameObject losePanel;
 
     GameObject[] player;
@@ -36,13 +38,18 @@ public class SideSliderController : MonoBehaviour
     }
 
     public void CallSliderCoroutine(int sliderIndex){
-        StartCoroutine(SliderController(sliders[sliderIndex]));
+        sliders[sliderIndex].value = 1;
+        sliderCoroutine[sliderIndex] = StartCoroutine(SliderController(sliderIndex));
     }
 
-    IEnumerator SliderController(Slider slider){
-        while(slider.value > 0){
+    public void StopSliderCoroutine(int sliderIndex){
+        StopCoroutine(sliderCoroutine[sliderIndex]);
+    }
+
+    IEnumerator SliderController(int sliderIndex){
+        while(sliders[sliderIndex].value > 0){
             yield return new WaitForSeconds (0.2f);
-            slider.value -= 0.003f;
+            sliders[sliderIndex].value -= 0.003f;
         }
         losePanel.SetActive(true);
         for (int i = 0; i <itens.Length;i++){

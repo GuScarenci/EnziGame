@@ -53,12 +53,11 @@ public class DestroyerScript : MonoBehaviour
         other.gameObject.GetComponent<SubstrateController>().DestructionEffect();
         other.gameObject.GetComponent<SubstrateController>().RemoveShip(); // <------ GAMBIARRA
 
+        this.gameObject.transform.parent.GetComponent<PlayerController>().ChangePlayer(-2);
+
         scoreManagerScript.AddScore();
         
         enzymeTimer.value = 1;
-        
-
-        this.gameObject.transform.parent.GetComponent<PlayerController>().ChangePlayer(-2);
 
         this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
 

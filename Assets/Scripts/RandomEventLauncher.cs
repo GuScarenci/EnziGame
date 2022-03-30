@@ -6,60 +6,48 @@ using UnityEngine.UI;
 public class RandomEventLauncher : MonoBehaviour
 {
     public GameObject destroyer;
-    public GameObject textPH;
+    public GameObject[] textPHAndTemperature;
     public TeacherSpeakManager teacherScript;
-    public GameObject textTemperature;
 
-    bool hasCalledTeacher = false;
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine (PHEvent());
-        StartCoroutine (TemperatureEvent());
-
+        StartCoroutine (StartPHAndTemperature());
     }
 
-    IEnumerator PHEvent(){
-        while(true){
-            bool started = false;
-            if(!started){
-                yield return new WaitForSeconds(5);
-            }
-            int temp = Random.Range(0,10);
-            if (temp == 1){
-                if(hasCalledTeacher){
-                    teacherScript.ChangeLine();
-                }
-                destroyer.GetComponent<DestroyerScript>().increaseDestroyDelay();
-                textPH.SetActive(true);
-            }
-            yield return new WaitForSeconds(5);
-            if(temp == 1){
-                destroyer.GetComponent<DestroyerScript>().reduceDestroyDelay();
-                textPH.SetActive(false);
-            }
+    IEnumerator StartPHAndTemperature(){
+        yield return new WaitForSeconds(12);
+        for(int i = 0;i<2;i++){
+            textPHAndTemperature[i].SetActive(true);
+            destroyer.GetComponent<DestroyerScript>().increaseDestroyDelay();
+
+            teacherScript.ChangeLine();
+        }
+
+        yield return new WaitForSeconds(5);
+
+        for(int i = 0;i<2;i++){
+            textPHAndTemperature[i].SetActive(false);
+            destroyer.GetComponent<DestroyerScript>().reduceDestroyDelay();
+        }
+        
+        for(int i = 0;i<2;i++){
+            StartCoroutine (PHAndTemperatureEvent(i));  
         }
     }
 
-    IEnumerator TemperatureEvent(){
+    IEnumerator PHAndTemperatureEvent(int phOrTemperature){
         while(true){
-
-            yield return new WaitForSeconds(10);
 
             int temp = Random.Range(0,10);
             if (temp == 1){
                 destroyer.GetComponent<DestroyerScript>().increaseDestroyDelay();
-                textTemperature.SetActive(true);
+                textPHAndTemperature[phOrTemperature].SetActive(true);
             }
             yield return new WaitForSeconds(5);
             if(temp == 1){
                 destroyer.GetComponent<DestroyerScript>().reduceDestroyDelay();
-                textTemperature.SetActive(false);
+                textPHAndTemperature[phOrTemperature].SetActive(false);
             }
         }
-
-
     }
 }

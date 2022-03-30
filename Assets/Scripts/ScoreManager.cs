@@ -15,12 +15,17 @@ public class ScoreManager : MonoBehaviour
     }
     void Update()
     { 
+        if(Input.GetKeyDown("i")){
+            AddScore();
+        }
     }
 
     public void AddScore(){
         score++;
         scoreText.text = "Pontos:" + score;
-        if(score >= 5){
+        if(score == 4){
+            levelManagerScript.PassLevel();
+        }else if (score == 8){
             levelManagerScript.PassLevel();
         }
     }

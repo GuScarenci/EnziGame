@@ -15,8 +15,7 @@ public class PlayerController : MonoBehaviour
     public Sprite[] playerSprites;
     public int type = 0;
     public int helperType = 0;
-
-    public Text scoreText;
+    public int level;
 
     void Start(){
          rb = GetComponent<Rigidbody2D>();
@@ -27,12 +26,14 @@ public class PlayerController : MonoBehaviour
         Move();
 
         if(type >= 0 ){
-            if (Input.GetKeyDown("e")){
-                ChangePlayer(0);
-            }else if (Input.GetKeyDown("r")){
-                ChangePlayer(2);
-            }else if (Input.GetKeyDown("t")){
-                ChangePlayer(4);
+            if(level > 1){
+                if (Input.GetKeyDown("e")){
+                    ChangePlayer(0);
+                }else if (Input.GetKeyDown("r")){
+                    ChangePlayer(2);
+                }else if (Input.GetKeyDown("t")){
+                    ChangePlayer(4);
+                }
             }
         }
     }
@@ -72,7 +73,6 @@ public class PlayerController : MonoBehaviour
     }
 
     public void ChangePlayer(int helper){
-
         //int helperType = 0;
         if (helper == 0){
             spriteRenderer.sprite = playerSprites[0];

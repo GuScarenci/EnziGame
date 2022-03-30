@@ -4,12 +4,16 @@ ScriptsOnlyBuild:
     - CameraMovement
     - DecorativeMovement
     - DestroyerScript
-    - EnzymeController
-    - EnzymeSpawner
+    - LevelManager
     - MenuScript
+    - PauseMenuScript
     - PlayerController
     - RandomEventLauncher
+    - ScoreManager
     - SideSliderController
+    - SubstrateController
+    - SubstrateSpawner
+    - TeacherSpeakManager
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -25,6 +29,12 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.TextMeshPro.dll:
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -52,26 +62,36 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1522}
+      Script: {instanceID: 1548}
     - Class: 114
-      Script: {instanceID: 2256}
+      Script: {instanceID: 1866}
     - Class: 114
-      Script: {instanceID: 2682}
+      Script: {instanceID: 2286}
     - Class: 114
-      Script: {instanceID: 2854}
+      Script: {instanceID: 2294}
     - Class: 114
-      Script: {instanceID: 3090}
+      Script: {instanceID: 2724}
     - Class: 114
-      Script: {instanceID: 3336}
+      Script: {instanceID: 2898}
     - Class: 114
-      Script: {instanceID: 3458}
+      Script: {instanceID: 3134}
     - Class: 114
-      Script: {instanceID: 3684}
+      Script: {instanceID: 3382}
+    - Class: 114
+      Script: {instanceID: 3504}
+    - Class: 114
+      Script: {instanceID: 3730}
+    - Class: 114
+      Script: {instanceID: 4920}
+    - Class: 114
+      Script: {instanceID: 5318}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -112,39 +132,51 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1522}
+      Script: {instanceID: 1548}
     - Class: 114
-      Script: {instanceID: 1722}
+      Script: {instanceID: 1748}
     - Class: 114
-      Script: {instanceID: 2052}
+      Script: {instanceID: 1866}
     - Class: 114
-      Script: {instanceID: 2256}
+      Script: {instanceID: 2056}
     - Class: 114
-      Script: {instanceID: 2682}
+      Script: {instanceID: 2088}
     - Class: 114
-      Script: {instanceID: 2854}
+      Script: {instanceID: 2206}
     - Class: 114
-      Script: {instanceID: 3090}
+      Script: {instanceID: 2294}
     - Class: 114
-      Script: {instanceID: 3336}
+      Script: {instanceID: 2416}
     - Class: 114
-      Script: {instanceID: 3362}
+      Script: {instanceID: 2578}
     - Class: 114
-      Script: {instanceID: 3458}
+      Script: {instanceID: 2724}
     - Class: 114
-      Script: {instanceID: 3684}
+      Script: {instanceID: 2898}
     - Class: 114
-      Script: {instanceID: 3900}
+      Script: {instanceID: 2948}
     - Class: 114
-      Script: {instanceID: 3974}
+      Script: {instanceID: 3134}
     - Class: 114
-      Script: {instanceID: 4186}
+      Script: {instanceID: 3264}
     - Class: 114
-      Script: {instanceID: 4694}
+      Script: {instanceID: 3382}
     - Class: 114
-      Script: {instanceID: 5464}
+      Script: {instanceID: 3408}
     - Class: 114
-      Script: {instanceID: 22268}
+      Script: {instanceID: 3504}
+    - Class: 114
+      Script: {instanceID: 3730}
+    - Class: 114
+      Script: {instanceID: 3946}
+    - Class: 114
+      Script: {instanceID: 4020}
+    - Class: 114
+      Script: {instanceID: 4232}
+    - Class: 114
+      Script: {instanceID: 4746}
+    - Class: 114
+      Script: {instanceID: 5516}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -244,10 +276,22 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: 5c9913b8a5dd726ee735780ee89d1d5b
+      Hash: 544d846fe00262b1ce965f59f9a004dc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelManager
+  - hash:
+      serializedVersion: 2
+      Hash: 953921f7d55662b4fbac90f0ba7779df
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DestroyerScript
+  - hash:
+      serializedVersion: 2
+      Hash: 28f29f3645945e6a3509073570c3928c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TeacherSpeakManager
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -280,6 +324,12 @@ ScriptsOnlyBuild:
     className: CinemachinePixelPerfect
   - hash:
       serializedVersion: 2
+      Hash: e472e7aaeba2851b50dad674526a3eda
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RandomEventLauncher
+  - hash:
+      serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -290,6 +340,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: IKManager2D
+  - hash:
+      serializedVersion: 2
+      Hash: 8b589be30b92707ba193adca6f5d54e7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScoreManager
   - hash:
       serializedVersion: 2
       Hash: a1aa98c78061c6f03a8c124cda576e67
@@ -374,6 +430,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
+  - hash:
+      serializedVersion: 2
+      Hash: c8c5e65e9fb858572516474d6e2102bc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PauseMenuScript
   - hash:
       serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
@@ -472,7 +534,7 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
-      Hash: 52f37c2d4389752d8f694a015f0593b5
+      Hash: bf6b1b0e396ec6b0f071e00793f0d781
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SideSliderController
@@ -484,7 +546,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: bffb9ded113fa41cfe51090eb571ebb9
+      Hash: a81c8e2a345da02c666c795a155adc9e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -526,10 +588,10 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: ecf87c7a90d4cff005d17c7699c5408c
+      Hash: cba6359a12429ebfe2f4cef2d29b0bb1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: EnzymeController
+    className: SubstrateController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -598,10 +660,10 @@ ScriptsOnlyBuild:
     className: ControlTrack
   - hash:
       serializedVersion: 2
-      Hash: dd46a3d13e339ed18a119460efaf9d0b
+      Hash: 66acb6c1f87eaafef491b24d9d0cd688
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: EnzymeSpawner
+    className: SubstrateSpawner
   - hash:
       serializedVersion: 2
       Hash: 3165968ba45c74472d279ba04455fccb
@@ -722,14 +784,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
-  - hash:
-      serializedVersion: 2
-      Hash: e5767677c539f5774b86dcf6e6bb13e1
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: RandomEventLauncher
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Gustavo Moura/Desktop/ICC Enzimas e Metabolismo.exe
+  playerPath: C:/Users/Gustavo Moura/OneDrive/Desktop/ICC Enzimas e Metabolismo.exe
