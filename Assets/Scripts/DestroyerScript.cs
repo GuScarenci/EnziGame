@@ -7,7 +7,7 @@ public class DestroyerScript : MonoBehaviour
 {
     public Slider enzymeTimer;
     public GameObject slidersController;
-    public float destroyingDelay = 0.00001f; 
+    public float destroyingDelay = 0.000005f; 
 
     public ScoreManager scoreManagerScript;
 

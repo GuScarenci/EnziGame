@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1780319448274809903}
   - component: {fileID: 1780319448274809898}
   - component: {fileID: 1780319448274809901}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Substrate
   m_TagString: Substrate
   m_Icon: {fileID: 0}

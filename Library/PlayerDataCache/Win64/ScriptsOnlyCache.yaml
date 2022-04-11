@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - DestroyerScript
     - LevelManager
     - MenuScript
+    - Parallax
     - PauseMenuScript
     - PlayerController
     - RandomEventLauncher
@@ -132,6 +133,8 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 652}
+    - Class: 114
       Script: {instanceID: 1548}
     - Class: 114
       Script: {instanceID: 1748}
@@ -177,6 +180,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4746}
     - Class: 114
       Script: {instanceID: 5516}
+    - Class: 114
+      Script: {instanceID: 5664}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -194,6 +199,14 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 19719996
+      Script: {instanceID: 0}
+    - Class: 156049354
+      Script: {instanceID: 0}
+    - Class: 483693784
+      Script: {instanceID: 0}
+    - Class: 1839735485
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -276,7 +289,7 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: 544d846fe00262b1ce965f59f9a004dc
+      Hash: 9ca93fbbbc99f05052c59a322cc2d629
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LevelManager
@@ -754,6 +767,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.U2D.Animation
     className: BufferManager
+  - hash:
+      serializedVersion: 2
+      Hash: a26287687bdad13d8b60b237850ab4be
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Parallax
   - hash:
       serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
