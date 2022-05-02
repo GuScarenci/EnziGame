@@ -19,9 +19,8 @@ public class RandomEventLauncher : MonoBehaviour
         for(int i = 0;i<2;i++){
             textPHAndTemperature[i].SetActive(true);
             destroyer.GetComponent<DestroyerScript>().increaseDestroyDelay();
-
-            teacherScript.ChangeLine();
         }
+        teacherScript.ChangeLine();
 
         yield return new WaitForSeconds(5);
 

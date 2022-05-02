@@ -301,7 +301,7 @@ ScriptsOnlyBuild:
     className: DestroyerScript
   - hash:
       serializedVersion: 2
-      Hash: 28f29f3645945e6a3509073570c3928c
+      Hash: cdb21942cde150d75e6582860259c0f3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TeacherSpeakManager
@@ -445,7 +445,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: c8c5e65e9fb858572516474d6e2102bc
+      Hash: 7e54a9a34179eff2a6d15ea0841a7939
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseMenuScript
@@ -547,7 +547,7 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
-      Hash: bf6b1b0e396ec6b0f071e00793f0d781
+      Hash: fc388c50dd0599f8ae0e2f36bf0ef6dd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SideSliderController

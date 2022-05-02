@@ -8,8 +8,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     float angleZ;
 
-    public float translationForce = 1.0f;
-    public float rotationForce = 100.0f;
+    //public float translationForce = 1.0f;
+    public float ySpeed, xSpeed, rotationSpeed;
+
+    public Joystick moveJoystick, rotateJoystick;
 
     SpriteRenderer spriteRenderer;
     public Sprite[] playerSprites;
@@ -19,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     void Start(){
          rb = GetComponent<Rigidbody2D>();
-         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+         spriteRenderer = this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
     }
 
     void Update(){
@@ -42,29 +44,24 @@ public class PlayerController : MonoBehaviour
         // Get the horizontal and vertical axis.
         // By default they are mapped to the arrow keys.
         // The value is in the range -1 to 1
-        float translation = Input.GetAxis("Vertical") * translationForce;
 
-        float rotation = Input.GetAxis("Horizontal") * rotationForce * -1;
-        if(Input.GetAxis("Vertical")<0){
-            //rotation *= -1;
-        }
+        //float translation = joystick.Vertical * translationForce;
 
-
-        // Make it move 10 meters per second instead of 10 meters per frame...
-        translation *= Time.deltaTime;
-        rotation *= Time.deltaTime;
-
-        // Move translation along the object's z-axis
+        //float rotation = joystick.Horizontal * rotationForce /** -1*/;
 
         //transform.Translate(0, translation, 0);
-        rb.AddForce(transform.up * translation);
-        float maxSpeed = 10;
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
 
-        // Rotate around our y-axis
-        //transform.Rotate(0, 0, rotation);
-        rb.AddTorque(rotation);
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+        //rb.AddForce(transform.up * translation);
+
+        //PC:
+        // rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+        //MOBILE:
+        this.transform.Translate(moveJoystick.Horizontal*xSpeed*Time.deltaTime, moveJoystick.Vertical*ySpeed*Time.deltaTime,0);
+        this.transform.GetChild(0).Rotate(0, 0, rotateJoystick.Horizontal*rotationSpeed * -1);
+
+        //rb.AddTorque(rotation);
+
+        //rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
 
         angleZ = Quaternion.Angle(Quaternion.Euler(new Vector3(0,0,0)),transform.rotation);
         //float angleZ = this.transform.eulerAngles.z;

@@ -5,16 +5,23 @@ using UnityEngine;
 public class PauseMenuScript : MonoBehaviour
 {
     public static bool GameIsPaused = false;
+    
+    TeacherSpeakManager teacherScript;
+    public SideSliderController sliderScript;
+
     public GameObject pauseMenuUI;
 
     void Start(){
         Time.timeScale = 1f;
+        teacherScript = this.GetComponent<TeacherSpeakManager>();
     }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
             if(GameIsPaused){
-                Resume();
+                if(sliderScript.lostTheGame != true){
+                    Resume();
+                }
             }else{
                 Pause();
             }
@@ -23,7 +30,9 @@ public class PauseMenuScript : MonoBehaviour
 
     public void Resume(){
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+            if(teacherScript.pausedByTeacher != true){
+                Time.timeScale = 1f;
+            }
         GameIsPaused = false;
     }
     void Pause(){

@@ -23,9 +23,9 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(){
         score++;
         scoreText.text = "Pontos:" + score;
-        if(score == 4){
+        if(score == 10){
             levelManagerScript.PassLevel();
-        }else if (score == 8){
+        }else if (score == 20){
             levelManagerScript.PassLevel();
         }
     }

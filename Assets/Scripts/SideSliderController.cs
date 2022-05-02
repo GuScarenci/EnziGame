@@ -14,6 +14,8 @@ public class SideSliderController : MonoBehaviour
     GameObject[] player;
     public GameObject[] itens;
 
+    public bool lostTheGame = false;
+
     void Start()
     {
         player = GameObject.FindGameObjectsWithTag("Player");
@@ -52,6 +54,7 @@ public class SideSliderController : MonoBehaviour
             sliders[sliderIndex].value -= 0.003f;
         }
         losePanel.SetActive(true);
+        lostTheGame = true;
         for (int i = 0; i <itens.Length;i++){
             Destroy(itens[i]);
         }

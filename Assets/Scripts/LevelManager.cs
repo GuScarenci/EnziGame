@@ -50,23 +50,20 @@ public class LevelManager : MonoBehaviour
 
             playerScript.ChangePlayer(2);
 
-            sliderScript.HideSlider(0);
             sliderScript.StopSliderCoroutine(0);
 
-            sliderScript.ShowSlider(1);
             sliderScript.CallSliderCoroutine(1);
 
             teacherScript.ChangeLine();
             imageRenderer.sprite = bodyIndicativeSprites[1];
             
         }else if(level == 1){
-            sliderScript.ShowSlider(0);
             sliderScript.CallSliderCoroutine(0);
 
-            sliderScript.ShowSlider(2);
             sliderScript.CallSliderCoroutine(2);
 
             teacherScript.ChangeLine();
+            
         }
         
         level++;
