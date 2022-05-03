@@ -11,6 +11,8 @@ public class PauseMenuScript : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    public GameObject pauseButton;
+
     void Start(){
         Time.timeScale = 1f;
         teacherScript = this.GetComponent<TeacherSpeakManager>();
@@ -29,13 +31,15 @@ public class PauseMenuScript : MonoBehaviour
     }
 
     public void Resume(){
+        pauseButton.SetActive(true);
         pauseMenuUI.SetActive(false);
             if(teacherScript.pausedByTeacher != true){
                 Time.timeScale = 1f;
             }
         GameIsPaused = false;
     }
-    void Pause(){
+    public void Pause(){
+        pauseButton.SetActive(false);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;

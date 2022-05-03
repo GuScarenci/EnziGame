@@ -21,8 +21,6 @@ public class SubstrateSpawner : MonoBehaviour
     public float slowest_speed = 0.75f;
     //================================
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -66,18 +64,23 @@ public class SubstrateSpawner : MonoBehaviour
     Vector3 GetRandomPosition(bool within_camera)
     {
         /** Get a random spawn position, using a 2D circle around the game area. **/
- 
         Vector3 position = Random.insideUnitCircle;
- 
-        if(within_camera == false)
-        {
-            position = position.normalized;
-        }
- 
-        position *= spawn_circle_radius;
-        position += game_area.transform.position;
- 
+        do{
+            position = Random.insideUnitCircle;
+            if(within_camera == false)
+            {
+                position = position.normalized;
+            }
+    
+            position *= spawn_circle_radius;
+            position += game_area.transform.position;
+            
+            Debug.Log(position.x+" "+position.y+" "+position.z);
+
+        }while((position.x > 320 || position.x < -320) || (position.y > 320 || position.y < -320) );
+
         return position;
+
     }
  
     SubstrateController AddShip(Vector3 position)

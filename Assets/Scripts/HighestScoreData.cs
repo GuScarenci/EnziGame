@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HighestScoreData : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+[System.Serializable]
+public class HighestScoreData{
+    public int highestScore;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public HighestScoreData (ScoreManager scoreScript){
+        highestScore = scoreScript.score;
     }
 }

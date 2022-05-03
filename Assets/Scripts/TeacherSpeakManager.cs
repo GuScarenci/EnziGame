@@ -6,7 +6,7 @@ using TMPro;
 
 public class TeacherSpeakManager : MonoBehaviour
 {
-    string[] teacherLine = {"Olá aluno! Esse é o EnziGame, use as teclas AWSD ou as setinhas para se locomover!",
+    string[] teacherLine = {"Olá aluno! Esse é o EnziGame, use o controle da esquerda para se mover e o da direta para rotacionar!",
 
     "No corpo agem várias enzimas, essas são responsáveis por acelerar as reações químicas que acontecem em nosso corpo.",
     "Uma enzima pode acelerar uma reação quimica em 10^6 até 10^12 vezes. Elas são diversas e com vários tipos de funcionamentos.",
@@ -37,7 +37,7 @@ public class TeacherSpeakManager : MonoBehaviour
     "Parabéns você passou de fase! Agora saímos do estômago e vamos para a boca",
     "No intestino delgado, muitas enzimas entram em ação, enzimas que quebram lipídios, carboidratos, proteínas etc. Algumas dessas enzimas são produzidas pelo pâncreas...",
     "e aqui finalmente estamos perto de onde a maioria dos nutrientes é absorvida pelo corpo humano.",
-    "No Enzigame aqui é ultima fase, aperte os botões \"E R T\" para transitar entre as 3 enzimas existentes e quebrar os substratos, aqui você...",
+    "No Enzigame aqui é ultima fase, aperte os botões \"C P L\" do canto superior para transitar entre as 3 enzimas existentes e quebrar os substratos, aqui você...",
     "precisará equilibrar as 3 barras de nutrientes, então lembre-se de não deixar nenhuma delas zerar. Mude para a enzima necessária...",
     "quando a barra respectiva a ela estiver perto de 0 para não perder o jogo!"};
     public TMP_Text teacherText;
@@ -52,14 +52,13 @@ public class TeacherSpeakManager : MonoBehaviour
     int helper = -1;
 
     public GameObject playerController;
-     public GameObject playerController2;
+    public GameObject playerController2;
+    public PlayerController playerScript;
 
     void Start()
     {
         teacherText.text = teacherLine[teacherSpeakIndex];
         ShowTeacher();
-        Time.timeScale = 0f;
-        pausedByTeacher = true;
     }
 
     public void ChangeLine(){
@@ -69,17 +68,13 @@ public class TeacherSpeakManager : MonoBehaviour
                 StartCoroutine(TeacherAwait(teacherSpeakIndex));
                 teacherText.text = teacherLine[teacherSpeakIndex];
 
-            /*SOME*/}else if(teacherSpeakIndex == teacherLine.Length || teacherSpeakIndex == 13 || teacherSpeakIndex == 17 || teacherSpeakIndex == 21){
+            /*SOME*/}else if(teacherSpeakIndex == teacherLine.Length - 1 || teacherSpeakIndex == 13 || teacherSpeakIndex == 17 || teacherSpeakIndex == 21){
 
                 if(helper == -1){
                     HideTeacher();
-                    Time.timeScale = 1f;
-                    pausedByTeacher = false;
                     //Debug.Log(helper);
                 }else{
                     ShowTeacher();
-                    Time.timeScale = 0f;
-                    pausedByTeacher = true;
                     teacherSpeakIndex++;
                     teacherText.text = teacherLine[teacherSpeakIndex];
                 }
@@ -92,27 +87,26 @@ public class TeacherSpeakManager : MonoBehaviour
     }
 
     IEnumerator TeacherAwait(int teacherSpeakIndex){
-
-        Time.timeScale = 1f;
-        pausedByTeacher = false;
-
         HideTeacher();
-
         yield return new WaitForSeconds(3f);
-        
         ShowTeacher();
-
-        Time.timeScale = 0f;
-        pausedByTeacher = true;
     }
 
     public void ShowTeacher(){
+
+        pausedByTeacher = true;
+        Time.timeScale = 0f;
+
+
+        playerController.transform.GetChild(0).GetComponent<RectTransform>().localPosition = Vector3.zero;
+        playerController2.transform.GetChild(0).GetComponent<RectTransform>().localPosition = Vector3.zero;
+
         playerController.SetActive(false);
         playerController2.SetActive(false);
 
         teacherPanel.SetActive(true);
 
-        if(level == 0){
+        /*if(level == 0){
             sideSliderScript.HideSlider(0);
         }else if(level == 1){
             sideSliderScript.HideSlider(1);
@@ -120,16 +114,21 @@ public class TeacherSpeakManager : MonoBehaviour
             for(int i = 0;i<level + 1;i++){
                 sideSliderScript.HideSlider(i);
             }
-        }
+        }*/
         enzymeTimer.SetActive(false);
     }
 
     public void HideTeacher(){
+
+        pausedByTeacher = false;
+        Time.timeScale = 1f;
+
         playerController.SetActive(true);
         playerController2.SetActive(true);
 
         teacherPanel.SetActive(false);
-        if(level == 0){
+        
+        /*if(level == 0){
             sideSliderScript.ShowSlider(0);
         }else if(level == 1){
             sideSliderScript.ShowSlider(1);
@@ -137,7 +136,7 @@ public class TeacherSpeakManager : MonoBehaviour
             for(int i = 0;i<level + 1;i++){
                 sideSliderScript.ShowSlider(i);
             }
-        }
+        }*/
         enzymeTimer.SetActive(true);
     }
 }

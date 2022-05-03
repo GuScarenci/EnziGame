@@ -18,25 +18,25 @@ public class DestroyerScript : MonoBehaviour
     { 
     }
 
-    void OnCollisionEnter2D(Collision2D other){
-        DestroyObjects(other);
+    void OnTriggerStay2D(Collider2D other){
+        DestroyObjects(other.gameObject);
     }
 
-    void DestroyObjects(Collision2D other){
-        float angleZ = Quaternion.Angle(Quaternion.Euler(new Vector3(0,0,0)),this.transform.parent.rotation);
+    void DestroyObjects(GameObject other){
+        float angleZ = Quaternion.Angle(Quaternion.Euler(new Vector3(0,0,0)),this.transform.rotation);
         float angleZOther = Quaternion.Angle(Quaternion.Euler(new Vector3(0,0,0)),other.transform.rotation);
 
         if (other.gameObject.CompareTag("Substrate")){
             Debug.Log(angleZ + angleZOther);
             if(this.gameObject.transform.parent.GetComponent<PlayerController>().type == other.gameObject.GetComponent<SubstrateController>().type){
-                if(angleZ + angleZOther > 170 && angleZ + angleZOther <190){
+                if(angleZ + angleZOther > 155 && angleZ + angleZOther <205){
                     StartCoroutine(EnzymeTimer(other));
                 }
             }
         }
     }
     
-    IEnumerator EnzymeTimer(Collision2D other){
+    IEnumerator EnzymeTimer(GameObject other){
 
         this.gameObject.transform.parent.GetComponent<PlayerController>().ChangePlayer(-1);
 
@@ -50,8 +50,8 @@ public class DestroyerScript : MonoBehaviour
             enzymeTimer.value -= 0.003f;
         }
 
-        other.gameObject.GetComponent<SubstrateController>().DestructionEffect();
-        other.gameObject.GetComponent<SubstrateController>().RemoveShip(); // <------ GAMBIARRA
+        other.GetComponent<SubstrateController>().DestructionEffect();
+        other.GetComponent<SubstrateController>().RemoveShip(); // <------ GAMBIARRA
 
         this.gameObject.transform.parent.GetComponent<PlayerController>().ChangePlayer(-2);
 

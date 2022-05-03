@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
     public TMP_Text scoreText;
-    int score;
-
+    public TMP_Text highestScoreText;
+    public int score;
+    public int highestScore;
     public LevelManager levelManagerScript;
 
     void Start()
     {
+        LoadScore();
     }
     void Update()
     { 
-        if(Input.GetKeyDown("i")){
-            AddScore();
+        if (!(SceneManager. GetActiveScene () == SceneManager. GetSceneByName ("Menu"))){
+            if(Input.GetKeyDown("i")){
+                AddScore();
+            }
         }
     }
 
@@ -27,6 +32,19 @@ public class ScoreManager : MonoBehaviour
             levelManagerScript.PassLevel();
         }else if (score == 20){
             levelManagerScript.PassLevel();
+        }
+    }
+
+    public void SaveScore(){
+        if(score > highestScore){
+            SaveSystem.SavePlayer(this);
+        }
+    }
+    public void LoadScore(){
+        HighestScoreData data = SaveSystem.LoadPlayer();
+        highestScore = data.highestScore;
+        if ((SceneManager. GetActiveScene () == SceneManager. GetSceneByName ("Menu"))){
+            highestScoreText.text = "Maior Pontuação:" + highestScore;
         }
     }
 }

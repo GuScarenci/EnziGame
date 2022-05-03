@@ -25,6 +25,8 @@ public class LevelManager : MonoBehaviour
     public GameObject backgroundPrefab;
     SpriteRenderer backgroundSpriteRenderer;
 
+    public GameObject[] changePlayerButtons = new GameObject[3];
+
     void Start()
     {
         teacherScript = this.gameObject.GetComponent<TeacherSpeakManager>();
@@ -51,16 +53,21 @@ public class LevelManager : MonoBehaviour
             playerScript.ChangePlayer(2);
 
             sliderScript.StopSliderCoroutine(0);
+            sliderScript.HideSlider(0);
 
             sliderScript.CallSliderCoroutine(1);
+            sliderScript.ShowSlider(1);
+
 
             teacherScript.ChangeLine();
             imageRenderer.sprite = bodyIndicativeSprites[1];
             
         }else if(level == 1){
             sliderScript.CallSliderCoroutine(0);
+            sliderScript.ShowSlider(0);
 
             sliderScript.CallSliderCoroutine(2);
+            sliderScript.ShowSlider(2);
 
             teacherScript.ChangeLine();
             
@@ -89,6 +96,9 @@ public class LevelManager : MonoBehaviour
                     backgroundSpriteRenderer = background[i,j].GetComponent<SpriteRenderer>();
                     backgroundSpriteRenderer.sprite = backgroundSprites[2];
                 }
+            }
+            for(int i = 0;i<changePlayerButtons.Length;i++){
+                changePlayerButtons[i].SetActive(true);
             }
         }
     }

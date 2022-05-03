@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     float angleZ;
 
     //public float translationForce = 1.0f;
-    public float ySpeed, xSpeed, rotationSpeed;
+    public float moveSpeed, rotationSpeed;
 
     public Joystick moveJoystick, rotateJoystick;
 
@@ -26,21 +26,17 @@ public class PlayerController : MonoBehaviour
 
     void Update(){
         Move();
-
-        if(type >= 0 ){
-            if(level > 1){
-                if (Input.GetKeyDown("e")){
-                    ChangePlayer(0);
-                }else if (Input.GetKeyDown("r")){
-                    ChangePlayer(2);
-                }else if (Input.GetKeyDown("t")){
-                    ChangePlayer(4);
-                }
+            if (Input.GetKeyDown("e")){
+                ChangePlayerViaButton(0);
+            }else if (Input.GetKeyDown("r")){
+                ChangePlayerViaButton(2);
+            }else if (Input.GetKeyDown("t")){
+                ChangePlayerViaButton(4);
             }
-        }
     }
 
     void Move(){
+        
         // Get the horizontal and vertical axis.
         // By default they are mapped to the arrow keys.
         // The value is in the range -1 to 1
@@ -56,8 +52,12 @@ public class PlayerController : MonoBehaviour
         //PC:
         // rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
         //MOBILE:
-        this.transform.Translate(moveJoystick.Horizontal*xSpeed*Time.deltaTime, moveJoystick.Vertical*ySpeed*Time.deltaTime,0);
-        this.transform.GetChild(0).Rotate(0, 0, rotateJoystick.Horizontal*rotationSpeed * -1);
+        if(moveJoystick.transform.GetChild(0).GetComponent<RectTransform>().localPosition != Vector3.zero){
+            this.transform.Translate(moveJoystick.Horizontal*moveSpeed*Time.deltaTime, moveJoystick.Vertical*moveSpeed*Time.deltaTime,0);
+        }
+        if(rotateJoystick.transform.GetChild(0).GetComponent<RectTransform>().localPosition != Vector3.zero){
+            this.transform.GetChild(0).Rotate(0, 0, rotateJoystick.Horizontal*rotationSpeed * -1);
+        }
 
         //rb.AddTorque(rotation);
 
@@ -65,10 +65,15 @@ public class PlayerController : MonoBehaviour
 
         angleZ = Quaternion.Angle(Quaternion.Euler(new Vector3(0,0,0)),transform.rotation);
         //float angleZ = this.transform.eulerAngles.z;
-        //Debug.Log("JOAO " + angleZ);
-
     }
 
+    public void ChangePlayerViaButton(int helper){
+        if(type >= 0 ){
+            if(level > 1){
+                ChangePlayer(helper);
+            }
+        }
+    }
     public void ChangePlayer(int helper){
         //int helperType = 0;
         if (helper == 0){

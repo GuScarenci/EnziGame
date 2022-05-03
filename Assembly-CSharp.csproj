@@ -53,11 +53,12 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\SubstrateController.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
+     <Compile Include="Assets\Scripts\HighestScoreData.cs" />
      <Compile Include="Assets\Scripts\SubstrateSpawner.cs" />
      <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
      <Compile Include="Assets\Scripts\DecorativeMovement.cs" />
      <Compile Include="Assets\Scripts\Parallax.cs" />
-     <Compile Include="Assets\Scripts\HighestScoreData.cs" />
+     <Compile Include="Assets\Scripts\SaveSystem.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
