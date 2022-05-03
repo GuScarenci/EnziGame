@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     float angleZ;
 
-    //public float translationForce = 1.0f;
     public float moveSpeed, rotationSpeed;
 
     public Joystick moveJoystick, rotateJoystick;
@@ -18,6 +17,10 @@ public class PlayerController : MonoBehaviour
     public int type = 0;
     public int helperType = 0;
     public int level;
+
+    //PC:
+    int rotateInput;
+    int maxSpeed = 12;
 
     void Start(){
          rb = GetComponent<Rigidbody2D>();
@@ -49,22 +52,23 @@ public class PlayerController : MonoBehaviour
 
         //rb.AddForce(transform.up * translation);
 
-        //PC:
-        // rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
         //MOBILE:
         if(moveJoystick.transform.GetChild(0).GetComponent<RectTransform>().localPosition != Vector3.zero){
             this.transform.Translate(moveJoystick.Horizontal*moveSpeed*Time.deltaTime, moveJoystick.Vertical*moveSpeed*Time.deltaTime,0);
         }
         if(rotateJoystick.transform.GetChild(0).GetComponent<RectTransform>().localPosition != Vector3.zero){
-            this.transform.GetChild(0).Rotate(0, 0, rotateJoystick.Horizontal*rotationSpeed * -1);
+            this.transform.GetChild(0).Rotate(0, 0, rotateJoystick.Horizontal*rotationSpeed*Time.deltaTime * -1);
         }
 
-        //rb.AddTorque(rotation);
+        //PC:
 
-        //rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+        //this.transform.Translate(Input.GetAxis("Horizontal")*moveSpeed*Time.deltaTime, Input.GetAxis("Vertical")*moveSpeed*Time.deltaTime,0);
+        rb.AddForce(new Vector2(Input.GetAxis("Horizontal")*moveSpeed*Time.deltaTime, Input.GetAxis("Vertical")*moveSpeed*Time.deltaTime));
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+
+        this.transform.GetChild(0).Rotate(0, 0, Input.GetAxis("RotateLK")*rotationSpeed * Time.deltaTime * -1);
 
         angleZ = Quaternion.Angle(Quaternion.Euler(new Vector3(0,0,0)),transform.rotation);
-        //float angleZ = this.transform.eulerAngles.z;
     }
 
     public void ChangePlayerViaButton(int helper){

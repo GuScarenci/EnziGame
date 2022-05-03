@@ -74,8 +74,6 @@ public class SubstrateSpawner : MonoBehaviour
     
             position *= spawn_circle_radius;
             position += game_area.transform.position;
-            
-            Debug.Log(position.x+" "+position.y+" "+position.z);
 
         }while((position.x > 320 || position.x < -320) || (position.y > 320 || position.y < -320) );
 

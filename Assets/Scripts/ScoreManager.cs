@@ -14,7 +14,9 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        LoadScore();
+        if ((SceneManager. GetActiveScene () == SceneManager. GetSceneByName ("Menu"))){
+            LoadScore();
+        }
     }
     void Update()
     { 

@@ -6,7 +6,9 @@ using TMPro;
 
 public class TeacherSpeakManager : MonoBehaviour
 {
-    string[] teacherLine = {"Olá aluno! Esse é o EnziGame, use o controle da esquerda para se mover e o da direta para rotacionar!",
+    string[] teacherLine = {
+    /*PC:*/ "Olá aluno! Esse é o EnziGame, use \"AWSD\" ou as setinhas para se mover e \"K e L\" para rotacionar!",
+    /*Mobile:*/ //"Olá aluno! Esse é o EnziGame, use o controle da esquerda para se mover e o da direta para rotacionar!",
 
     "No corpo agem várias enzimas, essas são responsáveis por acelerar as reações químicas que acontecem em nosso corpo.",
     "Uma enzima pode acelerar uma reação quimica em 10^6 até 10^12 vezes. Elas são diversas e com vários tipos de funcionamentos.",
@@ -37,7 +39,8 @@ public class TeacherSpeakManager : MonoBehaviour
     "Parabéns você passou de fase! Agora saímos do estômago e vamos para a boca",
     "No intestino delgado, muitas enzimas entram em ação, enzimas que quebram lipídios, carboidratos, proteínas etc. Algumas dessas enzimas são produzidas pelo pâncreas...",
     "e aqui finalmente estamos perto de onde a maioria dos nutrientes é absorvida pelo corpo humano.",
-    "No Enzigame aqui é ultima fase, aperte os botões \"C P L\" do canto superior para transitar entre as 3 enzimas existentes e quebrar os substratos, aqui você...",
+    /*PC:*/"No Enzigame aqui é ultima fase, aperte as teclas \"E R T\" ou os botões \"C P L\" do canto superior para transitar entre as 3 enzimas existentes e quebrar os substratos, aqui você...",
+    /*Mobile:*/ //"No Enzigame aqui é ultima fase, aperte os botões \"C P L\" do canto superior para transitar entre as 3 enzimas existentes e quebrar os substratos, aqui você...",
     "precisará equilibrar as 3 barras de nutrientes, então lembre-se de não deixar nenhuma delas zerar. Mude para a enzima necessária...",
     "quando a barra respectiva a ela estiver perto de 0 para não perder o jogo!"};
     public TMP_Text teacherText;
@@ -62,17 +65,15 @@ public class TeacherSpeakManager : MonoBehaviour
     }
 
     public void ChangeLine(){
-            //Debug.Log(teacherSpeakIndex);
-            /*INTERVALO*/if(teacherSpeakIndex == 0 || teacherSpeakIndex == 3 || teacherSpeakIndex == 8){
+            if(teacherSpeakIndex == 0 || teacherSpeakIndex == 3 || teacherSpeakIndex == 8){
                 teacherSpeakIndex++;
                 StartCoroutine(TeacherAwait(teacherSpeakIndex));
                 teacherText.text = teacherLine[teacherSpeakIndex];
 
-            /*SOME*/}else if(teacherSpeakIndex == teacherLine.Length - 1 || teacherSpeakIndex == 13 || teacherSpeakIndex == 17 || teacherSpeakIndex == 21){
+            }else if(teacherSpeakIndex == teacherLine.Length - 1 || teacherSpeakIndex == 13 || teacherSpeakIndex == 17 || teacherSpeakIndex == 21){
 
                 if(helper == -1){
                     HideTeacher();
-                    //Debug.Log(helper);
                 }else{
                     ShowTeacher();
                     teacherSpeakIndex++;
@@ -101,8 +102,9 @@ public class TeacherSpeakManager : MonoBehaviour
         playerController.transform.GetChild(0).GetComponent<RectTransform>().localPosition = Vector3.zero;
         playerController2.transform.GetChild(0).GetComponent<RectTransform>().localPosition = Vector3.zero;
 
-        playerController.SetActive(false);
-        playerController2.SetActive(false);
+        //Mobile:
+        //playerController.SetActive(false);
+        //playerController2.SetActive(false);
 
         teacherPanel.SetActive(true);
 
@@ -123,8 +125,9 @@ public class TeacherSpeakManager : MonoBehaviour
         pausedByTeacher = false;
         Time.timeScale = 1f;
 
-        playerController.SetActive(true);
-        playerController2.SetActive(true);
+        //Mobile:
+        //playerController.SetActive(true);
+        //playerController2.SetActive(true);
 
         teacherPanel.SetActive(false);
         
