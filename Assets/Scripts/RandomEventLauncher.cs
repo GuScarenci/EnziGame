@@ -18,6 +18,7 @@ public class RandomEventLauncher : MonoBehaviour
         yield return new WaitForSeconds(12);
         for(int i = 0;i<2;i++){
             textPHAndTemperature[i].SetActive(true);
+            FindObjectOfType<AudioManager>().Play("PHTempOn");
             destroyer.GetComponent<DestroyerScript>().increaseDestroyDelay();
         }
         teacherScript.ChangeLine();
@@ -26,6 +27,7 @@ public class RandomEventLauncher : MonoBehaviour
 
         for(int i = 0;i<2;i++){
             textPHAndTemperature[i].SetActive(false);
+            FindObjectOfType<AudioManager>().Play("PHTempOff");
             destroyer.GetComponent<DestroyerScript>().reduceDestroyDelay();
         }
         
@@ -41,11 +43,13 @@ public class RandomEventLauncher : MonoBehaviour
             if (temp == 1){
                 destroyer.GetComponent<DestroyerScript>().increaseDestroyDelay();
                 textPHAndTemperature[phOrTemperature].SetActive(true);
+                FindObjectOfType<AudioManager>().Play("PHTempOn");
             }
             yield return new WaitForSeconds(5);
             if(temp == 1){
                 destroyer.GetComponent<DestroyerScript>().reduceDestroyDelay();
                 textPHAndTemperature[phOrTemperature].SetActive(false);
+                FindObjectOfType<AudioManager>().Play("PHTempOff");
             }
         }
     }

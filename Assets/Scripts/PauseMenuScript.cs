@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PauseMenuScript : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public bool GameIsPaused = false;
     
     TeacherSpeakManager teacherScript;
     public SideSliderController sliderScript;

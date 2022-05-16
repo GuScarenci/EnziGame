@@ -11,13 +11,13 @@ public class ScoreManager : MonoBehaviour
     public int score;
     public int highestScore;
     public LevelManager levelManagerScript;
+    int level;
 
     void Start()
     {
-        if ((SceneManager. GetActiveScene () == SceneManager. GetSceneByName ("Menu"))){
-            LoadScore();
-        }
+        LoadScore();
     }
+
     void Update()
     { 
         if (!(SceneManager. GetActiveScene () == SceneManager. GetSceneByName ("Menu"))){
@@ -30,10 +30,10 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(){
         score++;
         scoreText.text = "Pontos:" + score;
-        if(score == 10){
+        if(score >= 20 && level < 2 || score >= 10 && level < 1){
             levelManagerScript.PassLevel();
-        }else if (score == 20){
-            levelManagerScript.PassLevel();
+            level++;
+            Debug.Log(level);
         }
     }
 

@@ -16,8 +16,17 @@ public class SideSliderController : MonoBehaviour
 
     public bool lostTheGame = false;
 
+    public float timeUntilNow = 0;
+
+
+    public float startingB;
+    public float[] b = {0f,0f,0f};
+
     void Start()
     {
+        for(int i =0;i<3;i++){
+            b[i] = startingB;
+        }
         player = GameObject.FindGameObjectsWithTag("Player");
 
         ShowSlider(0);
@@ -26,16 +35,16 @@ public class SideSliderController : MonoBehaviour
 
     void Update()
     {
-        
+        timeUntilNow += Time.deltaTime;
     }
 
     public void addFill(int sliderIndex){
         if(sliderIndex == 0){
-            sliders[0].value += 0.3f;
+            b[0] += 3f;
         } else if(sliderIndex == 1){
-            sliders[1].value += 0.3f;
+            b[1] += 3f;
         } else if(sliderIndex == 2){
-            sliders[2].value += 0.3f;
+            b[2] += 3f;
         }
     }
 
@@ -49,16 +58,26 @@ public class SideSliderController : MonoBehaviour
     }
 
     IEnumerator SliderController(int sliderIndex){
-        while(sliders[sliderIndex].value > 0){
+        while(sliders[sliderIndex].value > 0.01f){
             yield return new WaitForSeconds (0.2f);
-            sliders[sliderIndex].value -= 0.003f;
+            //sliders[sliderIndex].value -= timeUntilNow/5000;
+            sliders[sliderIndex].value = -1/(1+Mathf.Pow(1.2f,-1 * (timeUntilNow-b[sliderIndex])))+1;
         }
         losePanel.SetActive(true);
         lostTheGame = true;
         for (int i = 0; i <itens.Length;i++){
             Destroy(itens[i]);
         }
-        Destroy(player[0].GetComponent<SpriteRenderer>());
+        if(LevelManager.level == 0){
+            FindObjectOfType<AudioManager>().Stop("Thermal");
+        }else if(LevelManager.level == 1){
+            FindObjectOfType<AudioManager>().Stop("Often");
+        }else if(LevelManager.level == 2){
+            FindObjectOfType<AudioManager>().Stop("Anode");
+        }
+        Time.timeScale = 0f;
+        FindObjectOfType<AudioManager>().Play("Dingos");
+        Destroy(player[0].transform.GetChild(0).GetComponent<SpriteRenderer>());
     }
 
     public void HideSlider(int sliderIndex){

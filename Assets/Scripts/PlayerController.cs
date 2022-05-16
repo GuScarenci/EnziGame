@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     float angleZ;
-
     public float moveSpeed, rotationSpeed;
 
     public Joystick moveJoystick, rotateJoystick;
@@ -17,58 +16,52 @@ public class PlayerController : MonoBehaviour
     public int type = 0;
     public int helperType = 0;
     public int level;
+    public static bool isMobile = false;
 
     //PC:
     int rotateInput;
     int maxSpeed = 12;
 
     void Start(){
-         rb = GetComponent<Rigidbody2D>();
-         spriteRenderer = this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+
+        if(isMobile){
+            moveJoystick.gameObject.SetActive(true);
+            rotateJoystick.gameObject.SetActive(true);
+        }else{
+            moveJoystick.gameObject.SetActive(false);
+            rotateJoystick.gameObject.SetActive(false);
+        }
+
+        rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+
     }
 
     void Update(){
         Move();
-            if (Input.GetKeyDown("e")){
-                ChangePlayerViaButton(0);
-            }else if (Input.GetKeyDown("r")){
-                ChangePlayerViaButton(2);
-            }else if (Input.GetKeyDown("t")){
-                ChangePlayerViaButton(4);
-            }
+        if (Input.GetKeyDown("3")){
+            ChangePlayerViaButton(0);
+        }else if (Input.GetKeyDown("2")){
+            ChangePlayerViaButton(2);
+        }else if (Input.GetKeyDown("1")){
+            ChangePlayerViaButton(4);
+        }
     }
 
     void Move(){
-        
-        // Get the horizontal and vertical axis.
-        // By default they are mapped to the arrow keys.
-        // The value is in the range -1 to 1
+            if(moveJoystick.transform.GetChild(0).GetComponent<RectTransform>().localPosition != Vector3.zero){
+                rb.AddForce(new Vector2(moveJoystick.Horizontal*moveSpeed*Time.deltaTime, moveJoystick.Vertical*moveSpeed*Time.deltaTime));
+            }
+            if(rotateJoystick.transform.GetChild(0).GetComponent<RectTransform>().localPosition != Vector3.zero){
+                this.transform.GetChild(0).Rotate(0, 0, rotateJoystick.Horizontal*rotationSpeed*Time.deltaTime * -1);
+            }
+    
+            rb.AddForce(new Vector2(Input.GetAxis("Horizontal")*moveSpeed*Time.deltaTime, Input.GetAxis("Vertical")*moveSpeed*Time.deltaTime));
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
 
-        //float translation = joystick.Vertical * translationForce;
+            this.transform.GetChild(0).Rotate(0, 0, Input.GetAxis("RotateJL")*rotationSpeed * Time.deltaTime * -1);
 
-        //float rotation = joystick.Horizontal * rotationForce /** -1*/;
-
-        //transform.Translate(0, translation, 0);
-
-        //rb.AddForce(transform.up * translation);
-
-        //MOBILE:
-        if(moveJoystick.transform.GetChild(0).GetComponent<RectTransform>().localPosition != Vector3.zero){
-            this.transform.Translate(moveJoystick.Horizontal*moveSpeed*Time.deltaTime, moveJoystick.Vertical*moveSpeed*Time.deltaTime,0);
-        }
-        if(rotateJoystick.transform.GetChild(0).GetComponent<RectTransform>().localPosition != Vector3.zero){
-            this.transform.GetChild(0).Rotate(0, 0, rotateJoystick.Horizontal*rotationSpeed*Time.deltaTime * -1);
-        }
-
-        //PC:
-
-        //this.transform.Translate(Input.GetAxis("Horizontal")*moveSpeed*Time.deltaTime, Input.GetAxis("Vertical")*moveSpeed*Time.deltaTime,0);
-        rb.AddForce(new Vector2(Input.GetAxis("Horizontal")*moveSpeed*Time.deltaTime, Input.GetAxis("Vertical")*moveSpeed*Time.deltaTime));
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
-
-        this.transform.GetChild(0).Rotate(0, 0, Input.GetAxis("RotateLK")*rotationSpeed * Time.deltaTime * -1);
-
-        angleZ = Quaternion.Angle(Quaternion.Euler(new Vector3(0,0,0)),transform.rotation);
+            angleZ = Quaternion.Angle(Quaternion.Euler(new Vector3(0,0,0)),transform.rotation);
     }
 
     public void ChangePlayerViaButton(int helper){
@@ -79,7 +72,6 @@ public class PlayerController : MonoBehaviour
         }
     }
     public void ChangePlayer(int helper){
-        //int helperType = 0;
         if (helper == 0){
             spriteRenderer.sprite = playerSprites[0];
             type = 0;

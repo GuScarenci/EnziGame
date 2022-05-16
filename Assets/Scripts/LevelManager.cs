@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    int level;
+    public static int level;
     TeacherSpeakManager teacherScript;
     public SideSliderController sliderScript;
     public Sprite[] backgroundSprites;
@@ -28,7 +28,8 @@ public class LevelManager : MonoBehaviour
     public GameObject[] changePlayerButtons = new GameObject[3];
 
     void Start()
-    {
+    {   
+        FindObjectOfType<AudioManager>().SoftPlay("Thermal");
         teacherScript = this.gameObject.GetComponent<TeacherSpeakManager>();
         for(int i = 0;i<backgroundCount;i++){
             for(int j = 0;j<backgroundCount;j++){
@@ -47,8 +48,18 @@ public class LevelManager : MonoBehaviour
     }
 
     public void PassLevel(){
+        Debug.Log("AAAAAAAAAAAA");
+        sliderScript.timeUntilNow = 0;
+        for(int i = 0; i<3; i++){
+            sliderScript.b[i] = sliderScript.startingB;
+        }
 
         if(level == 0){
+            FindObjectOfType<AudioManager>().SoftStop("Thermal");
+            FindObjectOfType<AudioManager>().SoftPlay("Often");
+
+            levelText.text = "Estômago";
+
 
             playerScript.ChangePlayer(2);
 
@@ -61,24 +72,7 @@ public class LevelManager : MonoBehaviour
 
             teacherScript.ChangeLine();
             imageRenderer.sprite = bodyIndicativeSprites[1];
-            
-        }else if(level == 1){
-            sliderScript.CallSliderCoroutine(0);
-            sliderScript.ShowSlider(0);
 
-            sliderScript.CallSliderCoroutine(2);
-            sliderScript.ShowSlider(2);
-
-            teacherScript.ChangeLine();
-            
-        }
-        
-        level++;
-        teacherScript.level = level;
-        playerScript.level = level;
-
-        if(level == 1){
-            levelText.text = "Estômago";
             backgroundSpriteRenderer.sprite = backgroundSprites[1];
 
             for(int i = 0;i<backgroundCount;i++){
@@ -87,8 +81,21 @@ public class LevelManager : MonoBehaviour
                     backgroundSpriteRenderer.sprite = backgroundSprites[1];
                 }
             }
-        }else if(level == 2){
+            
+        }else if(level == 1){
+            FindObjectOfType<AudioManager>().SoftStop("Often");
+            FindObjectOfType<AudioManager>().SoftPlay("Anode");
+
             levelText.text = "Intestino";
+
+            sliderScript.CallSliderCoroutine(0);
+            sliderScript.ShowSlider(0);
+
+            sliderScript.CallSliderCoroutine(2);
+            sliderScript.ShowSlider(2);
+
+            teacherScript.ChangeLine();
+
             imageRenderer.sprite = bodyIndicativeSprites[2];
 
             for(int i = 0;i<backgroundCount;i++){
@@ -101,5 +108,9 @@ public class LevelManager : MonoBehaviour
                 changePlayerButtons[i].SetActive(true);
             }
         }
+        
+        level++;
+        teacherScript.level = level;
+        playerScript.level = level;
     }
 }

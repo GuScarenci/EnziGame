@@ -29,8 +29,5 @@ public static class SaveSystem {
             Debug.LogError("SavePlayer file not found in" + path);
             return null;
         }
-    }
-
-
-    
+    }   
 }
