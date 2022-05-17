@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {   
+        level = 0;
         FindObjectOfType<AudioManager>().SoftPlay("Thermal");
         teacherScript = this.gameObject.GetComponent<TeacherSpeakManager>();
         for(int i = 0;i<backgroundCount;i++){
@@ -49,6 +50,7 @@ public class LevelManager : MonoBehaviour
 
     public void PassLevel(){
         Debug.Log("AAAAAAAAAAAA");
+        Debug.Log(level);
         sliderScript.timeUntilNow = 0;
         for(int i = 0; i<3; i++){
             sliderScript.b[i] = sliderScript.startingB;

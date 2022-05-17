@@ -11,7 +11,6 @@ public class ScoreManager : MonoBehaviour
     public int score;
     public int highestScore;
     public LevelManager levelManagerScript;
-    int level;
 
     void Start()
     {
@@ -30,10 +29,8 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(){
         score++;
         scoreText.text = "Pontos:" + score;
-        if(score >= 20 && level < 2 || score >= 10 && level < 1){
+        if(score == 20 || score == 10){
             levelManagerScript.PassLevel();
-            level++;
-            Debug.Log(level);
         }
     }
 

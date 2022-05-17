@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
     public static bool teacherIsEnabled = true;
-    public static float volumeMusic = 0f;
-    public static float volumeGame = 0f;
+    public static float volumeMusic = 0.05f;
+    public static float volumeGame = 0.1f;
     
     public Slider volumeMusicController;
     public Slider volumeGameController;
@@ -22,6 +22,13 @@ public class MenuScript : MonoBehaviour
             volumeGameController.value = volumeGame;
             FindObjectOfType<AudioManager>().Play("Thermal");
 
+        }
+    }
+
+    void Update(){
+        if(Input.GetKeyDown("r")){
+            LoadGameScene();
+            Debug.ClearDeveloperConsole();
         }
     }
     public void LoadMenuScene(){
