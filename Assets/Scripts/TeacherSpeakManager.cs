@@ -7,7 +7,8 @@ using TMPro;
 public class TeacherSpeakManager : MonoBehaviour
 {
     string[] teacherLine = {
-    /*PC:*/ "Olá aluno! Esse é o EnziGame, use \"AWSD\" ou as setinhas para se mover e \"J e L\" para rotacionar!",
+    /*PC:*/ "Olá aluno, eu sou a Professora! Para que eu continue meu diálogo clique nesse painel ou aperte a tecla espaço.", 
+    "Esse é o EnziGame, use \"AWSD\" ou as setinhas para se mover e \"J e L\" para rotacionar!",
 
     "No corpo agem várias enzimas, essas são responsáveis por acelerar as reações químicas que acontecem em nosso corpo.",
     "Uma enzima pode acelerar uma reação quimica em 10^6 até 10^12 vezes. Elas são diversas e com vários tipos de funcionamentos.",
@@ -19,7 +20,7 @@ public class TeacherSpeakManager : MonoBehaviour
     "Isso é chamado de modelo chave-fechadura. Devido ao encaixe único da enzima no seu substrato.",
     "Essa quebra é o começo de uma série de eventos que acontecerão a substância para que ela possa ser absorvida pelo nosso corpo.",
 
-    "No Enzigame você controla uma enzima, e essas coisas navegando pela tela são os substratos.",
+    "No Enzigame você controla uma enzima, e o que está navegando pela tela ao seu redor são os substratos.",
     "Perceba que elas tem um forma específica, vá atrás das que encaixam na enzima e quebre-as enconstando nelas.",
     "Assim você prepara as substâncias para serem quebradas por outras enzimas e outras coisas que vão vir a acontecer com elas...",
     "e equilibra os nutrientes do corpo (o que é mostrado na barra lateral) e ganha pontos.",
@@ -35,11 +36,12 @@ public class TeacherSpeakManager : MonoBehaviour
     "Algumas enzimas entram em ação, a principal enzima digestiva que age no estômago é a pepsina...",
     "Essa enzima quebra as proteínas em partes menores que futuramente serão quebradas em partes ainda menores por outras enzimas.",
 
-    "Parabéns você passou de fase! Agora saímos do estômago e vamos para a boca",
+    "Parabéns você passou de fase! Agora saímos do estômago e vamos para o intestino.",
     "No intestino delgado, muitas enzimas entram em ação, enzimas que quebram lipídios, carboidratos, proteínas etc. Algumas dessas enzimas são produzidas pelo pâncreas...",
     "e aqui finalmente estamos perto de onde a maioria dos nutrientes é absorvida pelo corpo humano.",
-    /*PC:*/"No Enzigame aqui é ultima fase, aperte as teclas \"1, 2 e 3\" ou os botões \"C P L\" em cimas das barras laterais para transitar entre as 3 enzimas existentes e quebrar os substratos. Aqui você...",
-    "precisará equilibrar as 3 barras de nutrientes, então lembre-se de não deixar nenhuma delas zerar. Mude para a enzima necessária...",
+    /*PC:*/"No Enzigame aqui é ultima fase, aperte as teclas \"1, 2 e 3\" ou os botões \"C P L\" em cimas das barras laterais para transitar entre as 3 enzimas existentes e quebrar os substratos.",
+    "Você apenas pode mudar entre enzimas quando não houver substrato encaixado na sua enzima!",
+    "Aqui você precisará equilibrar as 3 barras de nutrientes, então lembre-se de não deixar nenhuma delas zerar. Mude para a enzima necessária...",
     "quando a barra respectiva a ela estiver perto de 0 para não perder o jogo!"};
     public TMP_Text teacherText;
     public GameObject teacherPanel;
@@ -59,7 +61,8 @@ public class TeacherSpeakManager : MonoBehaviour
     void Start()
     { 
         if(PlayerController.isMobile == true){
-            teacherLine[0] = "Olá aluno! Esse é o EnziGame, use o controle da esquerda para se mover e o da direta para rotacionar!";
+            teacherLine[0] = "Olá aluno, eu sou a Professora! Para que eu continue meu diálogo toque nesse paínel.";
+            teacherLine[1] = "Esse é o EnziGame, use o controle da esquerda para se mover e o da direta para rotacionar!";
             teacherLine[25] = "No Enzigame aqui é ultima fase, aperte os botões \"C P L\" em cima das barras laterais para transitar entre as 3 enzimas existentes e quebrar os substratos. Aqui você..."; 
         }
         if(MenuScript.teacherIsEnabled == true){
@@ -81,12 +84,12 @@ public class TeacherSpeakManager : MonoBehaviour
     public void ChangeLine(){
         if(MenuScript.teacherIsEnabled){
             FindObjectOfType<AudioManager>().Play("MenuJump");
-            if(teacherSpeakIndex == 0 || teacherSpeakIndex == 3 || teacherSpeakIndex == 8){
+            if(teacherSpeakIndex == 1 || teacherSpeakIndex == 4 || teacherSpeakIndex == 9){
                 teacherSpeakIndex++;
                 StartCoroutine(TeacherAwait(teacherSpeakIndex));
                 teacherText.text = teacherLine[teacherSpeakIndex];
 
-            }else if(teacherSpeakIndex == teacherLine.Length - 1 || teacherSpeakIndex == 13 || teacherSpeakIndex == 17 || teacherSpeakIndex == 21){
+            }else if(teacherSpeakIndex == teacherLine.Length - 1 || teacherSpeakIndex == 14 || teacherSpeakIndex == 18 || teacherSpeakIndex == 22){
 
                 if(helper == -1){
                     HideTeacher();

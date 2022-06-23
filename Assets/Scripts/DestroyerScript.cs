@@ -21,10 +21,13 @@ public class DestroyerScript : MonoBehaviour
     void DestroyObjects(GameObject other){
         float angleZ = Quaternion.Angle(Quaternion.Euler(new Vector3(0,0,0)),this.transform.rotation);
         float angleZOther = Quaternion.Angle(Quaternion.Euler(new Vector3(0,0,0)),other.transform.rotation);
-
+        Debug.Log("0\n");
         if (other.gameObject.CompareTag("Substrate")){
+            Debug.Log("1\n");
             if(this.gameObject.transform.parent.GetComponent<PlayerController>().type == other.gameObject.GetComponent<SubstrateController>().type){
+                Debug.Log("2\n");
                 if(angleZ + angleZOther > 155 && angleZ + angleZOther <205){
+                    Debug.Log("3\n");
                     StartCoroutine(EnzymeTimer(other));
                     FindObjectOfType<AudioManager>().Play("SubstrateAcquisition");
                 }
