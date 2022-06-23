@@ -40,7 +40,7 @@ public class DestroyerScript : MonoBehaviour
         this.gameObject.transform.parent.GetComponent<PlayerController>().ChangePlayer(-1);
 
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false; 
-
+        
         other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         other.gameObject.GetComponent<SpriteRenderer>().enabled = false; 
         
