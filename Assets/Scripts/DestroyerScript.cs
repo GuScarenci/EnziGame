@@ -21,13 +21,10 @@ public class DestroyerScript : MonoBehaviour
     void DestroyObjects(GameObject other){
         float angleZ = Quaternion.Angle(Quaternion.Euler(new Vector3(0,0,0)),this.transform.rotation);
         float angleZOther = Quaternion.Angle(Quaternion.Euler(new Vector3(0,0,0)),other.transform.rotation);
-        Debug.Log("0\n");
+
         if (other.gameObject.CompareTag("Substrate")){
-            Debug.Log("1\n");
             if(this.gameObject.transform.parent.GetComponent<PlayerController>().type == other.gameObject.GetComponent<SubstrateController>().type){
-                Debug.Log("2\n");
                 if(angleZ + angleZOther > 155 && angleZ + angleZOther <205){
-                    Debug.Log("3\n");
                     StartCoroutine(EnzymeTimer(other));
                     FindObjectOfType<AudioManager>().Play("SubstrateAcquisition");
                 }
@@ -40,13 +37,9 @@ public class DestroyerScript : MonoBehaviour
         this.gameObject.transform.parent.GetComponent<PlayerController>().ChangePlayer(-1);
 
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false; 
-        
+
         other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         other.gameObject.GetComponent<SpriteRenderer>().enabled = false; 
-        
-        //StartCoroutine(EnzymeTimeBarAnimation());
-
-        //yield return new WaitForSeconds(timeEnzyme);
 
         float timeOfEachSubtratction = (float)timeEnzyme/numberOfEnzymeBarSubtractions;
         float valueOfEachSubstraction = (float)1/numberOfEnzymeBarSubtractions;
