@@ -8,4 +8,5 @@ In Enzigame, you take on the role of an enzyme, tasked with catching substrates 
 Here you have the Unity project, and downloadable for Windows and Android 
 
 Windows: Extract files and run the "Enzigame.exe"
+
 Android: Download the .apk, run it, give it permission to be installed and install it. After that, it should be showing on your apps list.
